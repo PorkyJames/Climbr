@@ -23,3 +23,5 @@ class Friend(db.Model, UserMixin):
             'friend_id': self.friend.id,
             'status': self.status
         }
+
+
