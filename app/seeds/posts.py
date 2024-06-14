@@ -23,8 +23,8 @@ def seed_posts():
     if demo_user: 
         demo_post2 = Post(
             user_id=demo_user.id,
-            content_text="LMAO what?? How does he climb the side like that?",
-            media="https://youtube.com/embed/PTVRoDBhdY8?si=Bl4Cx6UOPt8g5ESU",
+            content_text="Man... tried this V2+ called Bloody Oasis and my fingers are all cut up. Here's what the route looks like! ",
+            media="https://mountainproject.com/assets/photos/climb/124289251_medium_1685290583_topo.jpg?cache=1685367500",
             created_at=datetime.utcnow()
         )
         db.session.add(demo_post2)
