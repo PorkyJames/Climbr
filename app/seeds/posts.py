@@ -1,5 +1,4 @@
 from app.models import db, User, environment, SCHEMA
-from sqlalchemy.sql import text
 from datetime import datetime
 
 from ..models.post import Post
@@ -8,7 +7,7 @@ def seed_posts():
     demo_user = User.query.filter_by(username='Demo').first()
     marnie_user = User.query.filter_by(username='marnie').first()
 
-    #Bobbie and Porky will not have any posts for testing purposes.
+    #Bobbie will not have any posts for testing purposes.
 
     # Check if the user exists and then create posts
     if demo_user:
