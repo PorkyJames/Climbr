@@ -18,4 +18,8 @@ class Comment(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
+            'post_id': self.post_id,
+            'user_id': self.user_id,
+            'text': self.text,
+            'created_at': self.created_at
         }
