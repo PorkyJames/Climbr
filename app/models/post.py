@@ -12,6 +12,9 @@ class Post(db.Model, UserMixin):
     media = db.Column(db.String(255), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
+    # Relationships
+    
+
     def to_dict(self):
         return {
             'post_id': self.post_id,

@@ -4,7 +4,7 @@ from .db import environment, SCHEMA
 from .user import User
 from .post import Post
 from .comment import Comment
-from .like import Like
+# from .like import Like
 
 __all__ = ['User', 'Post', 'Comment', 'Like']
 
