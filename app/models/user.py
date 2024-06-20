@@ -16,13 +16,15 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # Relationships
-    posts = db.relationship('Post', backref='author', lazy=True)
-    comments = db.relationship('Comment', backref='commenter', lazy=True)
-    likes = db.relationship('Like', backref='liker', lazy=True)
-    friends = db.relationship('Friend', foreign_keys='Friend.user_id', backref='user', lazy=True)
-    friend_of = db.relationship('Friend', foreign_keys='Friend.friend_id', backref='friend', lazy=True)
-
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'password': self.hashed_password,
+            'created_at': self.created_at
+        }
+    
     @property
     def password(self):
         return self.hashed_password
@@ -34,9 +36,3 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'username': self.username,
-            'email': self.email,
-        }
