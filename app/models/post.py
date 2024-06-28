@@ -7,10 +7,10 @@ from datetime import datetime
 class Post(db.Model, UserMixin):
     __tablename__ = 'posts'
     post_id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     content_text = db.Column(db.String(100), nullable=False)
     media = db.Column(db.String(255), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow())
 
     # Relationships
     comments = db.relationship('Comment', backref='post', lazy=True)

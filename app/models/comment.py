@@ -9,7 +9,7 @@ class Comment(db.Model, UserMixin):
     post_id = db.Column(db.Integer, db.ForeignKey('posts.post_id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
     text = db.Column(db.String(200), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow())
 
     # Relationships
     user = db.relationship('User', backref=db.backref('comments', lazy=True))

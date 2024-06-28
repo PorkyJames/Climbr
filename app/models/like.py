@@ -9,7 +9,7 @@ class Like(db.Model, UserMixin):
     like_id = db.Column(db.Integer, primary_key=True)
     post_id = db.Column(db.Integer, db.ForeignKey('posts.post_id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow())
 
     # Relationships
     post = db.relationship('Post', foreign_keys=[post_id], backref=db.backref('post_likes', lazy=True))
